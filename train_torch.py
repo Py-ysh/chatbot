@@ -237,6 +237,10 @@ if __name__ == "__main__":
             checkpoint_callback=checkpoint_callback, gradient_clip_val=1.0)
         trainer.fit(model)
         logging.info('best model path {}'.format(checkpoint_callback.best_model_path))
+
+        PATH_s = '/content/drive/MyDrive/data/chat_bot'
+        torch.save(model.state_dict(), PATH_s)
+
     if args.chat:
         model = KoGPT2Chat.load_from_checkpoint(args.model_params)
         model.chat()
