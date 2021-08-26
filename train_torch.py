@@ -238,8 +238,9 @@ if __name__ == "__main__":
         trainer.fit(model)
         logging.info('best model path {}'.format(checkpoint_callback.best_model_path))
 
-        PATH = '/content/drive/MyDrive/data/chat_bot'
-        torch.save(model.state_dict(), PATH)
     if args.chat:
         model = KoGPT2Chat.load_from_checkpoint(args.model_params)
         model.chat()
+
+    PATH = '/content/drive/MyDrive/data/chat_bot'
+    torch.save(model.state_dict(), PATH)
