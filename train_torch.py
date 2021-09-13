@@ -240,7 +240,5 @@ if __name__ == "__main__":
 
     if args.chat:
         model = KoGPT2Chat.load_from_checkpoint(args.model_params)
-        PATH_s = 'Chatbot_data'
-        torch.save(model, PATH_s+'KoGPT2-ch-v1.pt')
         model.chat()
 
